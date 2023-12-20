@@ -51,3 +51,32 @@ func UseChannelGetValue() {
 		}
 	}
 }
+
+func WaitGoRoutineUseChannel() {
+	forever := make(chan int)
+
+	go func() {
+		defer fmt.Println("goroutine channel 1 drop out")
+		fmt.Println("start a goroutine channel 1")
+		time.Sleep(time.Second)
+		forever <- 1
+	}()
+
+	go func() {
+		defer fmt.Println("goroutine channel 2 drop out")
+		fmt.Println("start a goroutine channel 2")
+		time.Sleep(time.Second)
+		forever <- 2
+	}()
+
+	fmt.Println("wait a goroutine")
+
+	<-forever
+	<-forever
+
+	// a := <-forever
+	// fmt.Println(a)
+	// b := <-forever
+	// fmt.Println(b)
+
+}
