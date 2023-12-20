@@ -2,8 +2,28 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"time"
 )
+
+func MockApi() {
+	ch1 := make(chan int)
+	ch2 := make(chan int)
+
+	go getValueAsync(ch1, 1)
+	go getValueAsync(ch2, 2)
+
+	println(<-ch1)
+	println(<-ch2)
+}
+
+func getValueAsync(channel chan int, val int) {
+	go func() {
+		r := rand.Intn(100)
+		time.Sleep(time.Microsecond * time.Duration(r))
+		channel <- val
+	}()
+}
 
 func UseChannelGetValue() {
 	val := make(chan int)
