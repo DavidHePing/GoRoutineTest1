@@ -10,13 +10,13 @@ import (
 func main() {
 	// ReleaseChildWhenParentRelase()
 	//UseChannelGetValue()
-	// WaitGoRoutine()
+	WaitGoRoutine()
 	// WaitGoRoutineUseChannel()
 	// LockTest()
 	// SelectTest()
 	//MockApi()
 
-	DeadLockTest1()
+	// DeadLockTest1()
 }
 
 func ReleaseChildWhenParentRelase() {
