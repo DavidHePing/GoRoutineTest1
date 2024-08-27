@@ -21,7 +21,10 @@ func main() {
 	// DeadLockTest2(false)
 
 	//Every type of lock
-	MutexLockTest1_without_lock()
+	// MutexLockTest1_without_lock()
+	// MutexLockTest1_lock_1of_useless()
+	// MutexLockTest1_with_lock()
+	MutexLockTest1_with_2lock_useless()
 }
 
 func ReleaseChildWhenParentRelase() {
@@ -52,38 +55,6 @@ func WaitGoRoutine() {
 	}()
 
 	fmt.Println("wait a goroutine")
-	wg.Wait()
-}
-
-func LockTest() {
-	var lock sync.Mutex
-	var wg sync.WaitGroup
-	val := 0
-
-	go func() {
-		defer wg.Done()
-
-		for i := 0; i < 10; i++ {
-			lock.Lock()
-			val++
-			fmt.Printf("First gorutine val++ and val = %d\n", val)
-			lock.Unlock()
-			time.Sleep(3000)
-		}
-	}()
-
-	go func() {
-		defer wg.Done()
-
-		for i := 0; i < 10; i++ {
-			lock.Lock()
-			val++
-			fmt.Printf("Sec gorutine val++ and val = %d\n", val)
-			lock.Unlock()
-			time.Sleep(1000)
-		}
-	}()
-	wg.Add(2)
 	wg.Wait()
 }
 
