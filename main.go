@@ -18,7 +18,10 @@ func main() {
 
 	// DeadLockTest1()
 	// DeadLockTest2(true)
-	DeadLockTest2(false)
+	// DeadLockTest2(false)
+
+	//Every type of lock
+	MutexLockTest1_without_lock()
 }
 
 func ReleaseChildWhenParentRelase() {
