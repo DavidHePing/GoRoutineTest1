@@ -16,7 +16,7 @@ func DeadLockTest2(isRun bool) {
 	fmt.Println("Start!!! isRun:", isRun)
 	ch1 := make(chan int)
 
-	if isRun == true {
+	if isRun {
 		go func() {
 			result := 1 + 2
 			ch1 <- result
