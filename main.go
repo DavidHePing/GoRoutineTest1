@@ -17,7 +17,8 @@ func main() {
 	// MutexLockTest1_without_lock()
 	// MutexLockTest1_lock_1of_useless()
 	// MutexLockTest1_with_lock()
-	MutexLockTest1_with_2lock_useless()
+	// MutexLockTest1_with_2lock_useless()
 
-	//
+	//lock allow once
+	Lock_by_once()
 }
