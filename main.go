@@ -22,6 +22,7 @@ func main() {
 	//lock allow once
 	// Lock_by_mutex_lock()
 	// Lock_by_mutex_lock_2()
+	Lock_by_mutex_lock_3()
 	// Lock_by_syncOnce()
 
 	//deadlock test
@@ -34,5 +35,5 @@ func main() {
 
 	//atomic
 	// Atomic_test1()
-	Atomic_test2()
+	// Atomic_test2()
 }

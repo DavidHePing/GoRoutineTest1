@@ -17,7 +17,7 @@ func show1(str string, lock *sync.Mutex, val *int) {
 	}
 }
 
-func Lock_by_mutex_lock() {
+func Lock_by_mutex_lock_1() {
 	var lock sync.Mutex
 	val := 0
 	var wg sync.WaitGroup
