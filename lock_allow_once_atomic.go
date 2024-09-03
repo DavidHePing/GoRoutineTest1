@@ -16,23 +16,16 @@ func Atomic_test1() {
 		defer wg.Done()
 		for i := 0; i < 5; i++ {
 			atomic.AddInt32(&counter, 1)
-			// fmt.Println("Goroutine1 counter:", counter)
+			fmt.Println("Goroutine1 counter:", counter)
 		}
 	}()
 
 	go func() {
 		defer wg.Done()
 		for i := 0; i < 5; i++ {
-			atomic.AddInt32(&counter, 1)
-			// fmt.Println("Goroutine2 counter:", counter)
-		}
-	}()
-
-	go func() {
-		defer wg.Done()
-		for i := 0; i < 5; i++ {
-			counter2++
-			fmt.Println("Goroutine1 counter2:", counter2)
+			counter++
+			// atomic.AddInt32(&counter, 1)
+			fmt.Println("Goroutine2 counter:", counter)
 		}
 	}()
 
@@ -40,7 +33,15 @@ func Atomic_test1() {
 		defer wg.Done()
 		for i := 0; i < 5; i++ {
 			counter2++
-			fmt.Println("Goroutine2 counter2:", counter2)
+			// fmt.Println("Goroutine1 counter2:", counter2)
+		}
+	}()
+
+	go func() {
+		defer wg.Done()
+		for i := 0; i < 5; i++ {
+			counter2++
+			// fmt.Println("Goroutine2 counter2:", counter2)
 		}
 	}()
 
