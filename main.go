@@ -23,4 +23,13 @@ func main() {
 	// Lock_by_mutex_lock()
 	// Lock_by_mutex_lock_2()
 	// Lock_by_syncOnce()
+
+	//deadlock test
+	// Deadlock_test1_deadlock()
+
+	//channel test2
+	// channel_test2_test1()
+	// channel_test2_test2()
+	channel_test2_test3()
+
 }
