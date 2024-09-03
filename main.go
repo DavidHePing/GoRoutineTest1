@@ -21,5 +21,6 @@ func main() {
 
 	//lock allow once
 	// Lock_by_mutex_lock()
-	Lock_by_syncOnce()
+	// Lock_by_mutex_lock_2()
+	// Lock_by_syncOnce()
 }

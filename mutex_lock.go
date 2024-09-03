@@ -104,7 +104,7 @@ func MutexLockTest1_with_2lock_useless() {
 	go func() {
 		defer wg.Done()
 
-		lock.Lock()
+		lock.Lock() // Acquire the lock
 		for i := 0; i < 5; i++ {
 			val++
 			fmt.Printf("First gorutine val++ and val = %d\n", val)
@@ -116,7 +116,7 @@ func MutexLockTest1_with_2lock_useless() {
 	go func() {
 		defer wg.Done()
 
-		lock2.Lock()
+		lock2.Lock() // Acquire the lock
 		for i := 0; i < 5; i++ {
 			val++
 			fmt.Printf("Sec gorutine val++ and val = %d\n", val)
