@@ -33,5 +33,6 @@ func main() {
 	// channel_test2_test3()
 
 	//atomic
-	Atomic_test1()
+	// Atomic_test1()
+	Atomic_test2()
 }
