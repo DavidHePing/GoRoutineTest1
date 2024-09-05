@@ -24,7 +24,8 @@ func main() {
 	// Lock_by_mutex_lock_2()
 	// Lock_by_mutex_lock_3()
 	// Lock_by_syncOnce()
-	Lock_Rw_Test1()
+	// Lock_Rw_Test1()
+	Lock_Rw_Test2()
 
 	//deadlock test
 	// Deadlock_test1_deadlock()
