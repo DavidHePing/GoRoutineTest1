@@ -9,10 +9,6 @@ func main() {
 	// SelectTest()
 	//MockApi()
 
-	// DeadLockTest1()
-	// DeadLockTest2(true)
-	// DeadLockTest2(false)
-
 	// Mutex
 	// MutexLockTest1_without_lock()
 	// MutexLockTest1_lock_1of_useless()
@@ -24,11 +20,16 @@ func main() {
 	// Lock_by_mutex_lock_2()
 	// Lock_by_mutex_lock_3()
 	// Lock_by_syncOnce()
-	Lock_Rw_Test1()
+	// Lock_Rw_Test1()
 	// Lock_Rw_Test2()
+	// Lock_by_channel_1()
 
 	//deadlock test
 	// Deadlock_test1_deadlock()
+	// Deadlock_test2_deadlock(true)
+	Deadlock_test2_deadlock(false)
+	// Deadlock_test3_deadlock()
+	// Deadlock_test4_deadlock()
 
 	//channel test2
 	// channel_test2_test1()

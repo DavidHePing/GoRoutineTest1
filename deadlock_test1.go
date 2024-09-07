@@ -2,28 +2,31 @@ package main
 
 import (
 	"fmt"
-	"sync"
-	"time"
 )
 
 func Deadlock_test1_deadlock() {
-	var wg sync.WaitGroup
-	ch := make(chan int) // Create a channel to share data
+	ch1 := make(chan int)
+	//deadlock cause no sender
+	a := <-ch1
+	fmt.Println(a)
+}
 
-	// Goroutine to increment counter
-	go func() {
-		defer wg.Done()
-		counter := 0
-		for i := 0; i < 5; i++ {
-			counter++
-			ch <- counter // Send the updated counter value through the channel
-			time.Sleep(1 * time.Second)
-		}
-		close(ch) // Close the channel when done
-	}()
+func Deadlock_test2_deadlock(isRun bool) {
+	defer fmt.Println("End!!!")
 
-	wg.Add(1)
-	wg.Wait()
+	fmt.Println("Start!!! isRun:", isRun)
+	ch1 := make(chan int)
 
-	fmt.Println("Finished")
+	if isRun {
+		go func() {
+			result := 1 + 2
+			ch1 <- result
+		}()
+	} else {
+		//dead lock cause non bufferd channel should set up sender and reciever in first time
+		ch1 <- 1 + 2
+	}
+
+	result := <-ch1
+	fmt.Println(result)
 }
