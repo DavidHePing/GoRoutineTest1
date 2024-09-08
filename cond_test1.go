@@ -15,7 +15,7 @@ func Cond_Test1(isWaitForAllGoroutineSetup bool) {
 	go func() {
 		defer wg.Done()
 		cond.L.Lock()
-		wgWaitConditionLock.Done()
+		wgWaitConditionLock.Done() //after lock, make sure it would entry to wait
 		cond.Wait()
 		println("Goroutine1!")
 		cond.L.Unlock()
@@ -24,18 +24,15 @@ func Cond_Test1(isWaitForAllGoroutineSetup bool) {
 	go func() {
 		defer wg.Done()
 		cond.L.Lock()
-		wgWaitConditionLock.Done()
+		wgWaitConditionLock.Done() //after lock, make sure it would entry to wait
 		cond.Wait()
 		println("Goroutine2!")
 		cond.L.Unlock()
 	}()
 
-	//still deadlock if signal is executed before any goroutine's cond.Wait
-	wgWaitConditionLock.Wait()
-
 	if isWaitForAllGoroutineSetup {
 		//Ensure that both goroutines to start waiting, if not, would deadlock
-		time.Sleep(10 * time.Millisecond)
+		wgWaitConditionLock.Wait()
 	}
 
 	cond.L.Lock()
