@@ -43,5 +43,6 @@ func main() {
 	//cond
 	// Cond_Test1(true)
 	// Cond_Test1(false) //deadlock
-	Cond_Test2_Fetal()
+	// Cond_Test2_Fetal()
+	Cond_Test3_Broadcast()
 }
