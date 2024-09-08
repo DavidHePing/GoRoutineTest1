@@ -8,6 +8,7 @@ import (
 func Cond_Test3_Broadcast() {
 	var wg sync.WaitGroup
 	wg.Add(2)
+
 	var cond = sync.NewCond(&sync.Mutex{})
 	go func() {
 		defer wg.Done()
